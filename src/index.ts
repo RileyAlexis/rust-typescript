@@ -1,22 +1,28 @@
-type Custom = {
-  age: number;
-  name: string;
-};
-
-type Item = number | string | Custom;
-
-function append(items: Item[]) {
-  items.push("hello front end masters!");
+interface Area {
+  area(): number;
 }
 
-const items: Item[] = [];
+class Rectangle implements Area {
+  constructor(
+    public x: number,
+    public y: number,
+    public width: number,
+    public height: number,
+  ) {}
 
-console.log(items);
-append(items);
-console.log(items);
+  area(): number {
+    return this.width * this.height;
+  }
+}
 
-const numbers: number[] = [];
-console.log(numbers);
+class Circle implements Area {
+  constructor(
+    public x: number,
+    public y: number,
+    public radius: number,
+  ) {}
 
-append(numbers);
-console.log(numbers);
+  area(): number {
+    return this.radius * this.radius * Math.PI;
+  }
+}
